@@ -1,9 +1,9 @@
 /*
-	Library: Maximum Flow
+	Library: Maximum Flow (vector stored version)
     Algorithm: Ford_Fulkerson and Edmonds-Karp
-    Vertex index: 1~n, source is 1 and sink is n ( may change according to diffrent usage )
     Input: edge connection
     Output: maximum flow (source->sink) and the flow details
+	Notice: Vertex index 1~n, source is 1 and sink is n ( change according to diffrent usage )
 */
 
 #include <cstdio>

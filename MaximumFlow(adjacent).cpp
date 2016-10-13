@@ -1,7 +1,9 @@
 /*
-	Maximum Flow ( Ford_Fulkerson and Edmonds-Karp )
-	vertex index: 1~n, source is 1 and sink is n ( may change according to diffrent usage )
-	edge direction: bidirection for residual network (as input)
+	Library: Maximum Flow (adjacent stored version)
+    Algorithm: Ford_Fulkerson and Edmonds-Karp
+    Input: edge connection
+    Output: maximum flow (source->sink) and the flow details
+	Notice: Vertex index 1~n, source is 1 and sink is n ( change according to diffrent usage )
 */
 
 #include <cstdio>
