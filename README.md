@@ -1,5 +1,5 @@
 # Algorithm Library
 Store My Algorithm Library
 
-## repo status
+## Repository Status
 Keep Updating

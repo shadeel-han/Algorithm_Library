@@ -13,12 +13,22 @@
 
 int seq[1000001];
 
+/*
+	Two reminders of binary search
+	(1) The argument end=(size or size-1):
+		When doing insertion, you should consider the possibility of inserting behind the last elemnt.
+	(2) Four combination of A and B:
+		The euqality(==) condition is put at A or B. The (+1 at B) or (-1 at A) is chosen.
+		for example - array[7] = 1, 3, 4, 4, 4, 8, 9, val = 4
+		According to your action(find_min, find_max or insertion), you should choose appropriate format of A and B.
+*/
+
 int BinarySearch(int start, int end, int val){
 	int low=start, up=end, mid;
 	while( low!=up ){
         mid = (low+up)>>1;
-		if( val > seq[mid] )	up = mid;
-		else                    low = mid + 1;
+		if( val > seq[mid] )	up = mid;		/* A */
+		else                    low = mid + 1;	/* B */
 	}
 	return low;
 }
