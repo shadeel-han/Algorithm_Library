@@ -22,7 +22,7 @@ struct POINT{	// also vector
 	POINT operator - (const POINT &k){
 		return POINT(x-k.x, y-k.y);
 	}
-	double operator * (const POINT &k){	// overload for croos product
+	double operator * (const POINT &k){	// overload for cross product
 		return x*k.y - y*k.x;
 	}
 };
