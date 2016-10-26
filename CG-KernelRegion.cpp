@@ -57,7 +57,8 @@ class KernelRegion{
 		// if the order of polygon's vertices is clockwise, return value is negative, otherwise positive
 		double PolygonArea(vector<POINT> poly){
 			double area = 0.0;
-			poly.push_back(poly[0]);	// append the starting vertex for convenience
+			if( poly.size()<3 )	return 0.0;	// vertex number < 3, area = 0
+			poly.push_back(poly[0]);		// append the starting vertex for convenience
 			for(int i=0,j=poly.size()-1; i<j; i++)
 				area += poly[i]*poly[i+1];
 			return area/2.0;
@@ -108,7 +109,7 @@ KernelRegion my;
 
 int main(void){
 	freopen("in.txt", "r", stdin);
-	freopen("out.txt", "w", stdout);
+	//freopen("out.txt", "w", stdout);
 	double a, b;
 	
 	while( scanf("%d %d", &my.Anum, &my.Bnum)!=EOF ){	// if Bnum=0, find kernel region
