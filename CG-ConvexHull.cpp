@@ -37,8 +37,13 @@ class ConvexHull{
 		int Vnum, PolyNum;
 		
 	public:
-		double dis(POINT a){
+		double Dis(POINT a){
 			return a.x*a.x + a.y*a.y;
+		}
+		
+		// cross product implies the direction from oa to ob, +:counterclockwise, -:clockwise, 0:parallel
+		double Cross(POINT org, POINT a, POINT b){
+			return (a-org)*(b-org);
 		}
 		
 		void FindBase_PolarSorting(void){
@@ -50,7 +55,7 @@ class ConvexHull{
 			for(int i=1; i<Vnum; i++){
 				in[i].xx = in[i].x - base.x;
 				in[i].yy = in[i].y - base.y;
-				in[i].dis = dis(in[i]-base);
+				in[i].dis = Dis(in[i]-base);
 			}
 			sort(in+1, in+Vnum);
 		}
@@ -59,7 +64,7 @@ class ConvexHull{
 			PolyNum = 2;
 			poly[0] = in[0], poly[1] = in[1];
 			for(int i=2; i<Vnum; i++){
-				while( PolyNum>=2 && (poly[PolyNum-1]-poly[PolyNum-2])*(in[i]-poly[PolyNum-2])<EPS )
+				while( PolyNum>=2 && Cross(poly[PolyNum-2], poly[PolyNum-1], in[i])<EPS )
 					PolyNum--;
 				poly[PolyNum++] = in[i];
 			}
